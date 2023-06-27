@@ -1,10 +1,12 @@
 #! /bin/sh
 
-picom -fb &
-nitrogen --restore &
-setxkbmap gb &
-pgrep -x sxhkd > /dev/null || sxhkd &
-~/.config/polybar/launch.sh
+# Start necessary programs
+picom -fb &   			      # Compositor
+xsetroot -cursor_name left_ptr &      # Cursor appearance
+nitrogen --restore & 		      # Wallpaper
+pgrep -x sxhkd > /dev/null || sxhkd & # Shortcut program
+~/.config/polybar/launch.sh &         # Polybar
+setxkbmap -layout gb,hu -option grp:alt_shift_toggle # Keyboard layout
 
 bspc monitor -d 1 2 3 4 5
 
