@@ -30,5 +30,21 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Execute window manager
-exec bspwm
+# Execute programs
+setxkbmap -layout gb,hu -option grp:alt_shift_toggle & # Keyboard
+picom -fb &                           # Compositor
+nitrogen --restore &                  # Wallpaper
+wal -R &                              # Color scheme
+~/.config/polybar/launch.sh &         # Taskbar
+xsetroot -cursor_name left_ptr &      # Cursor
+spotify &                             # Startup program
+pgrep -x sxhkd > /dev/null || sxhkd & # Shortcuts
+exec bspwm                            # Window manager
+
+
+
+
+
+
+
+
