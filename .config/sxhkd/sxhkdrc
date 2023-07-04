@@ -15,8 +15,8 @@ super + shift + Return
 	firefox
 
 # Program launcher
-super + @space
-	dmenu_run
+super + d
+	rofi -show drun
 
 # Close
 super + q
@@ -26,9 +26,17 @@ super + q
 ## bspwm hotkeys ##
 ###################
 
+# Lock
+super + shift + e
+	~/.config/bspwm/scripts/lock.sh
+
+# Sleep
+super + shift + r
+	~/.config/bspwm/scripts/lock.sh && systemctl suspend
+
 # Quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+super + alt + r
+	bspc wm -r
 
 # Sxhkd reload
 super + Escape
@@ -49,7 +57,7 @@ super + {1-9,0}
 
 # Send to the given desktop
 super + shift + {1-9,0}
-	bspc node -d '^{1-9,10}' --follow
+	bspc node -d '^{1-9,10}'
 
 
 #################
@@ -84,5 +92,8 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	light -A 10
 
-
-
+# Screenshot
+Print
+	scrot -e 'xclip -selection clipboard -t image/png -i $f' ~/Documents/Screenshots/screenshot
+super + shift + s
+	scrot -e 'xclip -selection clipboard -t image/png -i $f' -s ~/Documents/Screenshots/screenshot

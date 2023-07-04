@@ -37,7 +37,6 @@ nitrogen --restore &                  # Wallpaper
 wal -R &                              # Color scheme
 ~/.config/polybar/launch.sh &         # Taskbar
 xsetroot -cursor_name left_ptr &      # Cursor
-spotify &                             # Startup program
 pgrep -x sxhkd > /dev/null || sxhkd & # Shortcuts
 exec bspwm                            # Window manager
 
