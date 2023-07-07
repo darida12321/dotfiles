@@ -32,7 +32,11 @@ super + shift + e
 
 # Sleep
 super + shift + r
-	~/.config/bspwm/scripts/lock.sh && systemctl suspend
+	~/.config/bspwm/scripts/lock.sh && systemctl sleep
+
+# Hybernate
+super + shift + t
+	systemctl hibernate
 
 # Quit/restart bspwm
 super + alt + r
