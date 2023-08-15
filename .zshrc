@@ -44,6 +44,7 @@ eval "$(starship init zsh)"
 
 # Aliases
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias vim=nvim
 
 # Path
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"

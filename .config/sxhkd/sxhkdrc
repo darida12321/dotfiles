@@ -8,7 +8,7 @@ super + Return
 
 # File explorer
 super + shift + f
-	alacritty -e ranger
+	alacritty -e bash -c '(cat ~/.cache/wal/sequences &) && ranger'
 
 # Browser
 super + shift + Return
