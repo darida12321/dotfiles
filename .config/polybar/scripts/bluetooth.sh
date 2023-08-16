@@ -3,7 +3,6 @@
 source "${HOME}/.cache/wal/colors.sh"
 
 bluetooth_print() {
-    bluetoothctl | while read -r REPLY; do
     	echo -n "%{F"
 
         if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -gt 0 ]; then
@@ -31,7 +30,6 @@ bluetooth_print() {
         fi
 
 	echo "}%{T20}${T-}"
-    done
 }
 
 bluetooth_toggle() {
