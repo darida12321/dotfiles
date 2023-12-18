@@ -98,6 +98,6 @@ XF86MonBrightnessUp
 
 # Screenshot
 Print
-	scrot -e 'xclip -selection clipboard -t image/png -i $f' ~/Documents/Screenshots/screenshot
+	escrotum -e 'xclip -selection clipboard -t image/png -i $f' ~/Documents/Screenshots/screenshot
 super + shift + s
-	scrot -e 'xclip -selection clipboard -t image/png -i $f' -s ~/Documents/Screenshots/screenshot
+	escrotum -e 'xclip -selection clipboard -t image/png -i $f' -s ~/Documents/Screenshots/screenshot

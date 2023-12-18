@@ -101,9 +101,11 @@ alias vim=nvim
 alias ls='exa --icons --all --across --group-directories-first'
 alias ll='exa --icons --all --long'
 alias tree='exa --icons --all --tree --level 3'
+alias hdmi='xrandr --output HDMI-1 --mode 1920x1080'
 
 # Path
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 ###########
 # Plugins #

@@ -13,6 +13,14 @@ if [ "$type" = "802-11-wireless" ]; then
     has_wifi=$((1))
 
     signal=$(nmcli -t -f in-use,signal device wifi list ifname "$device" | grep "\*" | cut -d ':' -f 2)
+
+    # Check if signal is a number
+    re='^[0-9]+$'
+    if ! [[ $signal =~ $re ]] ; then
+        echo -n "󰤮"
+	exit 1
+    fi
+
     if [ "$signal" -gt "$wifi_signal" ]; then
 	wifi_signal=$signal
     fi
@@ -26,17 +34,17 @@ echo -n "%{A1:nm-connection-editor:}%{A3:nm-connection-editor:}"
 if [ "$has_ethernet" -eq 1 ]; then
     echo -n "󱎔"
 elif [ "$has_wifi" -eq 1 ]; then
-if [ "$wifi_signal" -lt 20 ]; then
-    echo -n "󰤯"
-elif [ "$wifi_signal" -lt 40 ]; then
-    echo -n "󰤟"
-elif [ "$wifi_signal" -lt 60 ]; then
-    echo -n "󰤢"
-elif [ "$wifi_signal" -lt 80 ]; then
-    echo -n "󰤥"
-else
-    echo -n "󰤨"
-fi
+    if [ "$wifi_signal" -lt 20 ]; then
+        echo -n "󰤯"
+    elif [ "$wifi_signal" -lt 40 ]; then
+        echo -n "󰤟"
+    elif [ "$wifi_signal" -lt 60 ]; then
+        echo -n "󰤢"
+    elif [ "$wifi_signal" -lt 80 ]; then
+        echo -n "󰤥"
+    else
+        echo -n "󰤨"
+    fi
 else
     echo -n "󰤮"
 fi
