@@ -30,7 +30,8 @@ fi
 done < <(echo "$connection_list")
 
 
-echo -n "%{A1:nm-connection-editor:}%{A3:nm-connection-editor:}"
+manager="alacritty -e bash -c '(cat ~/.cache/wal/sequences &) && nmtui connect'"
+echo -n "%{A1:$manager:}%{A3:$manager:}"
 if [ "$has_ethernet" -eq 1 ]; then
     echo -n "󱎔"
 elif [ "$has_wifi" -eq 1 ]; then
